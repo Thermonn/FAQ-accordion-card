@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Kumbh+Sans:wght@400;700&family=Lexend+Deca&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+html {
+    background-image: linear-gradient(hsl(240, 40%, 45%), hsl(273, 75%, 66%));
+}
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+    /* font-size: 12px; */
+}
+
+/*-------------------------*/
+
+main {
+    min-height: 100vh;
+    padding-block: 1.5em;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+}
+
+/*------------------------*/
+
+.card {
+    margin: auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    min-width: 500px;  width: 65%;  max-width: 1000px;
+    background-color: white;
+    border-radius: 2em;
+    box-shadow: 0 2.75em 3em -3em black;
+}
+
+/*--------- Images ---------*/
+
+#box-image {
+    z-index: 2;
+    position: absolute;
+    /* width: 190px; */
+    left: -93px;
+    top: 185px;
+}
+.images-section {
+    position: relative;
+    overflow: hidden;
+    padding-right: 1em;
+}
+.card > img,
+.images-section > * {
+    position: absolute;
+}
+
+#bg-pattern-desktop {
+    left: -556px;
+    top: -295px;
+    width: 950px;
+}
+#woman-desktop {
+    left: -80px;
+    top: 50px;
+}
+
+#bg-pattern-mobile {
+    width: 240px;
+    left: calc(50% - 120px);
+    top: 7px;
+}
+#woman-mobile {
+    top: -107px;
+    z-index: 2;
+    width: 240px;
+    left: calc(50% - 120px);
+}
+#bg-pattern-mobile,
+#woman-mobile {
+    display: none;  /* changed in media */
+}
+
+/* --------- FAQ --------- */
+
+.faq-section {
+    box-sizing: border-box;
+    padding: 2em 3em 5em 0;
+}
+.faq-section > h2 {
+    font-size: 36px;
+    color: hsl(238, 29%, 16%);
+}
+.questions-column {
+    display: flex;
+    flex-direction: column;
+}
+.questions-column > .line {
+    width: 100%;
+    
+    border-bottom: 1px solid hsl(240, 5%, 91%);
+    transition: 250ms;
+}
+.line > .question {
+    width: 100%;
+    display: grid;
+    align-items: baseline;
+    grid-template-columns: 1fr 0.75em;
+}
+.line > .question > .question-text {
+    color: hsl(237, 12%, 33%);
+    padding-right: 1em;
+}
+.line > .question > .button {
+    background-image: url(./images/icon-arrow-down.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 0.75em; height: 0.5em;
+}
+
+
+.line > .answer > .answer-text {
+    font-size: 14px;
+    color: hsl(240, 6%, 50%);
+    margin-top: 0;
+}
+
+
+/* -------- Media -------- */
+
+@media (max-width: 1150px) {
+    #box-image,
+    #bg-pattern-desktop,
+    #woman-desktop {
+        transform: scale(0.90);
+    }
+    #woman-desktop {
+        left: -100px;
+    }
+    .card {
+        grid-template-columns: 400px 1fr;
+    }
+}
+
+/* mobile */
+@media (max-width: 985px) {
+    .card {
+        margin-top: 6em;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 120px 1fr;
+        min-height: 60vh;
+        min-width: 1px;  width: 90%;
+    }
+    /*---*/
+    #box-image, #bg-pattern-desktop, #woman-desktop {
+        display: none;
+    }
+    #bg-pattern-mobile, #woman-mobile {
+        display: block;
+    }
+    /*---*/
+    .faq-section {
+        padding: 0 2em 4em;
+    }
+    .faq-section > * {
+        flex: 1;
+        align-items: stretch;
+    }
+    .faq-section > h2 {
+        text-align: center;
+    }
+}
+
+
+/* --- Hovers, active states --- */
+
+.line > .question:hover,
+.line > .question:focus {
+    cursor: pointer;
+}
+.line > .question:hover > *, 
+.line > .question:focus > * {
+    color: hsl(14, 88%, 65%);
+}
+
+.active-bold {
+    font-weight: 700;
+}
+.hidden {
+    display: none;
+}
+.rotate {
+    transform: rotate(180deg);
+}
+
+
+/* ------- Footer ------- */
+
+footer {
+    height: 8em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(240, 40%, 45%);
+}
+.attribution { 
+    font-size: 14px; 
+    text-align: center; 
+
+    padding: 2em 3em;
+}
+.attribution a { 
+    color: hsl(240, 44%, 92%); 
+    text-decoration: none;
+}
+.attribution a:hover { 
+    color: hsl(240, 49%, 74%); 
+}
